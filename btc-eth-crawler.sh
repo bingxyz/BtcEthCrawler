@@ -1,9 +1,10 @@
 #!/bin/bash
 
-cd ~/code/btc
+
 botToken=$(sed -n 1p token.txt)
 channelId=$(sed -n 2p token.txt)
 chatId=$(sed -n 3p token.txt)
+
 result=$(curl -s https://blockchain.info/ticker | grep TWD)
 btcBuy=$(echo $result | grep -oP '"buy" : \K[^,]*(?=,)')
 btcSell=$(echo $result | grep -oP '"sell" : \K[^,]*(?=,)')
