@@ -63,5 +63,5 @@ sendText="
 
 url="https://api.telegram.org/bot"$botToken"/sendMessage"
 data="chat_id=@"$channelId"&text="$sendText"&parse_mode=HTML"
-data="chat_id="$chatId"&text="$sendText"&parse_mode=HTML"
+# data="chat_id="$chatId"&text="$sendText"&parse_mode=HTML"
 curl "$url" --data "$data"
