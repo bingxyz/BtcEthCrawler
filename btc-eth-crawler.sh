@@ -5,9 +5,9 @@ botToken=$(sed -n 1p token.txt)
 channelId=$(sed -n 2p token.txt)
 chatId=$(sed -n 3p token.txt)
 
-result=$(curl -s https://blockchain.info/ticker | grep TWD)
-btcBuy=$(echo $result | grep -oP '"buy" : \K[^,]*(?=,)')
-btcSell=$(echo $result | grep -oP '"sell" : \K[^,]*(?=,)')
+result=$(curl -s https://www.maicoin.com/api/prices/btc-twd)
+btcBuy=$(echo $result | grep -oP '"formatted_buy_price":"\K[^"]*(?=")' | tr -d 'NT$,' )
+btcSell=$(echo $result | grep -oP '"formatted_sell_price":"\K[^"]*(?=")' | tr -d 'NT$,' )
 
 result=$(curl -s https://www.maicoin.com/api/prices/eth-twd)
 ethBuy=$(echo $result | grep -oP '"formatted_buy_price":"\K[^"]*(?=")' | tr -d 'NT$,' )
